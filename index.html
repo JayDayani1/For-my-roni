@@ -8,10 +8,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
 <style>
-/* ─── RESET ─────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
-/* ─── BODY ───────────────────────────────────────────────── */
 body{
   font-family:'Lato',sans-serif;
   background:#1c0e06;
@@ -19,9 +17,7 @@ body{
   overflow-x:hidden;
 }
 
-/* ═══════════════════════════════════════════════════════════
-   API KEY MODAL
-══════════════════════════════════════════════════════════ */
+/* ── MODAL ─────────────────────────────────────────────── */
 #apiModal{
   position:fixed;inset:0;
   background:rgba(0,0,0,.78);
@@ -36,13 +32,6 @@ body{
   max-width:400px;width:92%;
   text-align:center;
   box-shadow:0 24px 64px rgba(0,0,0,.6);
-}
-.modal-box h2{
-  font-family:'Caveat',cursive;font-size:2rem;
-  color:#8b4010;margin-bottom:10px;
-}
-.modal-box p{
-  font-size:.88rem;color:#7a5530;line-height:1.7;margin-bottom:24px;
 }
 .modal-box input{
   width:100%;padding:11px 15px;
@@ -60,11 +49,9 @@ body{
   transition:transform .2s,box-shadow .2s;
 }
 .modal-btn:hover{transform:translateY(-2px);box-shadow:0 7px 20px rgba(201,128,58,.55);}
-
-/* question fill-in-the-blank */
 .modal-question{
   font-family:'Caveat',cursive;font-size:1.55rem;font-weight:700;
-  color:#5a2e08;margin-bottom:6px;line-height:1.4;
+  color:#5a2e08;margin-bottom:6px;line-height:1.5;
 }
 .blank{
   display:inline-block;
@@ -80,20 +67,8 @@ body{
   display:none;font-family:'Caveat',cursive;font-size:1rem;
   color:#b83030;margin-bottom:10px;
 }
-/* step transition */
-.modal-step{transition:opacity .35s ease;}
-.modal-step.hidden{display:none;}
-.modal-step2-title{
-  font-family:'Caveat',cursive;font-size:1.6rem;color:#8b4010;
-  margin-bottom:8px;
-}
-.modal-step2-sub{
-  font-size:.82rem;color:#7a5530;line-height:1.6;margin-bottom:20px;
-}
 
-/* ═══════════════════════════════════════════════════════════
-   FAIRY LIGHTS HEADER
-══════════════════════════════════════════════════════════ */
+/* ── FAIRY LIGHTS ──────────────────────────────────────── */
 .fairy-header{
   background:#140800;
   padding:24px 12px 18px;
@@ -101,7 +76,6 @@ body{
   position:relative;
   overflow:hidden;
 }
-/* the wire */
 .fairy-header::before{
   content:'';
   position:absolute;
@@ -116,9 +90,7 @@ body{
   justify-content:center;
   position:relative;
 }
-.bulb-wrap{
-  display:flex;flex-direction:column;align-items:center;
-}
+.bulb-wrap{display:flex;flex-direction:column;align-items:center;}
 .bulb-stem{width:2px;background:#4a2c0a;}
 .bulb{
   width:36px;height:44px;
@@ -129,7 +101,6 @@ body{
   position:relative;
   animation:bulbFlicker 2.4s ease-in-out infinite;
 }
-/* metal cap */
 .bulb::after{
   content:'';position:absolute;bottom:-5px;left:50%;
   transform:translateX(-50%);
@@ -148,18 +119,14 @@ body{
 .b-peach{background:#ffcba4;box-shadow:0 0 10px 4px rgba(255,203,164,.65),0 0 22px 8px rgba(255,155,60,.3);}
 .b-cream{background:#fff8dc;box-shadow:0 0 10px 4px rgba(255,248,220,.75),0 0 22px 8px rgba(255,220,100,.35);}
 
-/* ═══════════════════════════════════════════════════════════
-   PAGE SUBTITLE
-══════════════════════════════════════════════════════════ */
+/* ── PAGE SUBTITLE ─────────────────────────────────────── */
 .page-sub{
   text-align:center;padding:22px 20px 6px;
   font-family:'Caveat',cursive;font-size:1.35rem;
   color:#d49560;letter-spacing:.5px;
 }
 
-/* ═══════════════════════════════════════════════════════════
-   CORKBOARD
-══════════════════════════════════════════════════════════ */
+/* ── CORKBOARD ─────────────────────────────────────────── */
 .board-outer{
   max-width:1020px;margin:16px auto 70px;
   padding:6px;
@@ -178,8 +145,6 @@ body{
   padding:28px 22px 32px;
   box-shadow:inset 0 3px 10px rgba(0,0,0,.3),inset 0 -2px 6px rgba(255,180,60,.1);
 }
-
-/* ─── ENVELOPE GRID ─────────────────────────────────────── */
 .env-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -188,13 +153,11 @@ body{
 @media(min-width:600px){.env-grid{grid-template-columns:repeat(3,1fr);}}
 @media(min-width:900px){.env-grid{grid-template-columns:repeat(4,1fr);}}
 
-/* ─── SINGLE ENVELOPE WRAPPER ───────────────────────────── */
+/* ── ENVELOPE ──────────────────────────────────────────── */
 .env-wrap{
   display:flex;flex-direction:column;align-items:center;
   position:relative;padding-top:12px;
 }
-
-/* pushpin */
 .pushpin{
   position:absolute;top:0;left:50%;transform:translateX(-50%);
   width:20px;height:20px;border-radius:50%;z-index:5;
@@ -205,8 +168,6 @@ body{
   content:'';position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);
   width:5px;height:10px;background:#999;border-radius:0 0 3px 3px;
 }
-
-/* envelope card */
 .env-card{
   width:100%;
   border-radius:8px 8px 6px 6px;
@@ -223,11 +184,9 @@ body{
   transform:translateY(-5px) rotate(-1.5deg);
   box-shadow:4px 10px 24px rgba(0,0,0,.38);
 }
-
-/* envelope flap triangle */
 .env-flap{
   width:100%;
-  padding-bottom:50%; /* triangle height */
+  padding-bottom:50%;
   position:relative;
   overflow:hidden;
   transform-origin:top center;
@@ -236,20 +195,16 @@ body{
   border-radius:8px 8px 0 0;
 }
 .env-flap::before{
-  content:'';position:absolute;
-  inset:0;
+  content:'';position:absolute;inset:0;
   background:var(--ef,#f5cfa8);
   clip-path:polygon(0 0,100% 0,50% 100%);
 }
 .env-card.is-open .env-flap{transform:rotateX(-175deg);}
-
-/* envelope body */
 .env-body{
   padding:10px 10px 13px;
   display:flex;flex-direction:column;align-items:center;gap:7px;
   position:relative;
 }
-/* diagonal V lines like a real envelope */
 .env-body::before,.env-body::after{
   content:'';position:absolute;
   width:145%;height:2px;
@@ -258,14 +213,11 @@ body{
 }
 .env-body::before{left:-23%;transform:rotate(34deg);transform-origin:left top;}
 .env-body::after{right:-23%;transform:rotate(-34deg);transform-origin:right top;}
-
 .wax-seal{font-size:1.7rem;line-height:1;filter:drop-shadow(0 2px 3px rgba(0,0,0,.22));}
 .env-label{
   font-family:'Caveat',cursive;font-size:.82rem;font-weight:600;
   color:#5a2e08;text-align:center;line-height:1.35;
 }
-
-/* opened ribbon */
 .env-ribbon{
   display:none;
   position:absolute;top:6px;right:-5px;
@@ -278,7 +230,7 @@ body{
 }
 .env-wrap.opened .env-ribbon{display:block;}
 
-/* ─── SECRET ENVELOPE SECTION ───────────────────────────── */
+/* ── SECRET ENVELOPE ───────────────────────────────────── */
 .secret-section{
   display:none;
   text-align:center;
@@ -310,9 +262,7 @@ body{
   50%{box-shadow:2px 5px 28px rgba(255,210,0,.85),0 0 48px rgba(255,180,0,.6);}
 }
 
-/* ═══════════════════════════════════════════════════════════
-   LETTER OVERLAY / MODAL
-══════════════════════════════════════════════════════════ */
+/* ── LETTER OVERLAY ────────────────────────────────────── */
 #letterOverlay{
   display:none;
   position:fixed;inset:0;
@@ -323,7 +273,6 @@ body{
   overflow-y:auto;
 }
 #letterOverlay.open{display:flex;}
-
 .letter-modal{
   max-width:540px;width:100%;
   display:flex;flex-direction:column;align-items:center;
@@ -333,23 +282,17 @@ body{
   from{opacity:0;transform:translateY(28px);}
   to{opacity:1;transform:translateY(0);}
 }
-
-/* mini envelope at top of modal */
 .mini-env{
   width:110px;height:72px;
-  position:relative;
-  perspective:500px;
-  margin-bottom:-2px;
-  flex-shrink:0;
+  position:relative;perspective:500px;
+  margin-bottom:-2px;flex-shrink:0;
 }
 .mini-env-body{
   width:100%;height:100%;
   border-radius:5px 5px 7px 7px;
-  background:var(--me-color,#fde3c8);
 }
 .mini-env-flap{
   position:absolute;top:0;left:0;right:0;height:52%;
-  background:var(--me-flap,#f5cfa8);
   clip-path:polygon(0 0,100% 0,50% 100%);
   transform-origin:top center;
   animation:miniFlap .7s cubic-bezier(.4,0,.2,1) .2s both;
@@ -358,8 +301,6 @@ body{
   from{transform:rotateX(0);}
   to{transform:rotateX(-168deg);}
 }
-
-/* letter card */
 .letter-card{
   background:#fdf8ee;
   border-radius:0 0 8px 8px;
@@ -373,7 +314,6 @@ body{
   from{opacity:0;transform:translateY(18px);}
   to{opacity:1;transform:translateY(0);}
 }
-/* ruled lines */
 .letter-card::before{
   content:'';position:absolute;inset:0;border-radius:0 0 8px 8px;
   background-image:repeating-linear-gradient(
@@ -392,8 +332,6 @@ body{
   color:#3a1e08;line-height:1.92;
   white-space:pre-wrap;min-height:80px;
 }
-
-/* loading dots */
 .dots{display:flex;gap:9px;justify-content:center;padding:22px 0;}
 .dots span{
   width:11px;height:11px;border-radius:50%;background:#c9803a;
@@ -405,8 +343,6 @@ body{
   0%,80%,100%{transform:translateY(0);opacity:.55;}
   40%{transform:translateY(-13px);opacity:1;}
 }
-
-/* seal-back button */
 .seal-btn{
   margin-top:18px;
   background:transparent;border:2px solid #c9803a;color:#c9803a;
@@ -416,16 +352,13 @@ body{
 }
 .seal-btn:hover{background:#c9803a;color:#fff;}
 
-/* ═══════════════════════════════════════════════════════════
-   MUSIC BUTTON
-══════════════════════════════════════════════════════════ */
+/* ── MUSIC BUTTON ──────────────────────────────────────── */
 #musicBtn{
-  position:fixed;bottom:22px;right:22px;
   width:52px;height:52px;border-radius:50%;
   background:linear-gradient(135deg,#c9803a,#e2a256);
   border:none;font-size:1.4rem;cursor:pointer;
   box-shadow:0 4px 18px rgba(200,128,58,.5);
-  z-index:900;display:flex;align-items:center;justify-content:center;
+  display:flex;align-items:center;justify-content:center;
   transition:transform .2s;
 }
 #musicBtn:hover{transform:scale(1.1);}
@@ -438,14 +371,14 @@ body{
 </head>
 <body>
 
-<!-- ── MODAL ────────────────────────────────────────────────── -->
+<!-- ── MODAL ──────────────────────────────────────────────── -->
 <div id="apiModal">
   <div class="modal-box">
     <h2 style="font-family:'Caveat',cursive;font-size:1.9rem;color:#8b4010;margin-bottom:14px;">
       One question first 🧡
     </h2>
     <p class="modal-question">
-      I Likeeeeeeee youuuuuuuu RONNIIIIIIII _____________
+      I Likeeeeeeee youuuuuuuu RONNIIIIIIII <span class="blank" id="blankWord">_____________</span>
     </p>
     <p class="modal-hint">
       ( Mare biju kaik lakhvu tu but ee hu aavine kav 🧡 )
@@ -453,25 +386,23 @@ body{
     <input type="text" id="loveInput" placeholder="your answer..."
            autocomplete="off" spellcheck="false"
            onkeydown="if(event.key==='Enter')checkAnswer()"
-           oninput="document.getElementById('blankWord').textContent=this.value||'_______'">
+           oninput="document.getElementById('blankWord').textContent=this.value||'_____________'">
     <div class="modal-err" id="wrongMsg">hmm… try again 🥺</div>
     <button class="modal-btn" onclick="checkAnswer()">that's my answer 🧡</button>
   </div>
 </div>
 
-<!-- ── FAIRY LIGHTS HEADER ────────────────────────────────── -->
+<!-- ── FAIRY LIGHTS ────────────────────────────────────────── -->
 <div class="fairy-header">
   <div class="lights-row" id="lightsRow"></div>
 </div>
 
-<!-- ── PAGE SUBTITLE ──────────────────────────────────────── -->
 <p class="page-sub">For Ronniiiiiiii 🧡 — open when you need it</p>
 
 <!-- ── CORKBOARD ──────────────────────────────────────────── -->
 <div class="board-outer">
   <div class="board-inner">
     <div class="env-grid" id="envGrid"></div>
-    <!-- secret 9th envelope -->
     <div class="secret-section" id="secretSection">
       <div class="secret-hint">✨ You opened them all… there's one more 🌟 ✨</div>
       <div class="secret-card-wrap" id="secretWrap"></div>
@@ -481,8 +412,8 @@ body{
 
 <!-- ── LETTER OVERLAY ─────────────────────────────────────── -->
 <div id="letterOverlay" onclick="overlayClick(event)">
-  <div class="letter-modal" id="letterModal">
-    <div class="mini-env" id="miniEnv">
+  <div class="letter-modal">
+    <div class="mini-env">
       <div class="mini-env-body" id="miniEnvBody"></div>
       <div class="mini-env-flap" id="miniEnvFlap"></div>
     </div>
@@ -494,20 +425,17 @@ body{
   </div>
 </div>
 
-<!-- ── MUSIC TOGGLE ───────────────────────────────────────── -->
+<!-- ── MUSIC ───────────────────────────────────────────────── -->
 <div style="position:fixed;bottom:22px;right:22px;display:flex;flex-direction:column;align-items:flex-end;gap:6px;z-index:900;">
   <span id="musicLabel" style="display:none;font-family:'Caveat',cursive;font-size:.85rem;color:#e2a256;
-        background:rgba(28,14,6,.85);padding:3px 10px;border-radius:12px;white-space:nowrap;
-        animation:musicPulse 1.6s ease-in-out infinite;">
+        background:rgba(28,14,6,.85);padding:3px 10px;border-radius:12px;white-space:nowrap;">
     ♪ Wildflower — Billie Eilish
   </span>
   <button id="musicBtn" onclick="toggleMusic()">🎵</button>
 </div>
 
 <script>
-/* ════════════════════════════════════════════════════════════
-   DATA
-════════════════════════════════════════════════════════════ */
+/* ── DATA ──────────────────────────────────────────────────── */
 const ENVELOPES = [
   {id:0,label:"Open when you feel unappreciated at work",  color:"#fde3c8",flap:"#f2ccac",line:"rgba(0,0,0,.07)"},
   {id:1,label:"Open when you feel like giving up",          color:"#ffd6d6",flap:"#f5b8b8",line:"rgba(0,0,0,.06)"},
@@ -521,38 +449,32 @@ const ENVELOPES = [
 ];
 const SECRET = {id:8,label:"Open when you've read them all… 🌟",color:"#fff5c0",flap:"#ffe865",line:"rgba(0,0,0,.06)"};
 
-const SYS = `You write deeply heartfelt, personal letters from a loving boyfriend to his girlfriend named Het (nickname: Ronniiiiiiii). She is sweet, kind, hardworking, currently having a tough time as a Tim Hortons manager, and is actively looking for a job in her field. Each letter should feel warm, personal, romantic but genuine — not cheesy. Write in first person as her boyfriend. 3-4 short paragraphs. End every letter with 'Forever yours 🧡' and nothing else after that. No intro labels, just the letter body.`;
-
 const FALLBACK = {
   0:`Hi Ronniii, tu best chhe oky please remember this every time and thay koik var loko ne khabar na pade apde ketli mehnat kari chhe bu bu but i know that tu bou hard work kare chhe and ena mate i am always happy for you.\n\nYarrr tu ketlu manage kari ley ekla j mast team manage kare, mane manage kare , family and most important I lllloooooooo naaa I like youuuuu ronnniiiiiiii tuuu booo j mast chhee tu badhu j perfect kare chhe .\n\nThis job is a chapter, not the whole story. aa job khali survival mate chhe baki mast apanane biji IT ni job mali jashe joje tension nai leenekaaaa my loveeee 🥰😘.\n\nForever yours 🧡`,
 
   1:`Hey. Don't. Not yet. I knwo aa thodu frustrating chhe but apda dreams b to mota mota chhe neee to thoda kam kar lete hee reeeee 😍💗.\n\nYarr roniiiii tu to maru motivation chhe tu roj atli mehnat kare to ee bija ghana badha loko ne inspire kare roj roj roj and mane to khas haaa so my love give up nai karnekaaa 💕❤️\n\nThis isn't where it ends. It's just a hard stretch. And I'm not going anywhere — I'm going to be right here reading every page of this with you.😘💚\n\nForever yours 🧡`,
 
-  2:`I miss you too. Like, specifically — the specific weight of your head on my shoulder🥰😍. The way you reach over and fix something on me for no reason. Tu roj je mane savare nava nava name thi bolave mane to bou man thay chhe ke hu jaldi thi tya aai jav tari pase and mast apde sathe raieee but ye kambakt jinmedariya but koi niiii hu to tane stalk kari shaku roj and ee hu karto j riash❤️💖    .\n\n   TU ee chhe jene hu 10 ni vache b tane j joish, 100 ni vache b tane j jova magish, 1000 ni vache b tane j vicharish, 10000 ni vache b tane j miss karish iiii lloooo  nai nai naiaiii hamna naiii mane tya aavi ne kevu chhe ❤️💖    \n\n Come back to me soon. Or just text me something random. I need it.\n\nForever yours 🧡`,
+  2:`I miss you too. Like, specifically — the specific weight of your head on my shoulder🥰😍. The way you reach over and fix something on me for no reason. Tu roj je mane savare nava nava name thi bolave mane to bou man thay chhe ke hu jaldi thi tya aai jav tari pase and mast apde sathe raieee but ye kambakt jinmedariya but koi niiii hu to tane stalk kari shaku roj and ee hu karto j riash❤️💖\n\nTU ee chhe jene hu 10 ni vache b tane j joish, 100 ni vache b tane j jova magish, 1000 ni vache b tane j vicharish, 10000 ni vache b tane j miss karish iiii lloooo nai nai naiaiii hamna naiii mane tya aavi ne kevu chhe ❤️💖\n\nCome back to me soon. Or just text me something random. I need it.\n\nForever yours 🧡`,
 
   3:`I know it feels far. I know you've applied and waited and heard nothing and applied again and it is exhausting and demoralizing and some days I think you probably wonder if it's even worth it. That's a real feeling and I'm not going to pretend it isn't.\n\nBut here's the thing — you are genuinely, actually qualified for what you want. Not "you'll grow into it" qualified. You already are it. The work ethic, the people skills, the patience you have that most people in your field don't even have after years of doing it. Someone is going to read your name on an application one day and think oh, finally. And then that's going to be your whole life.\n\nDon't stop applying. Don't let the silence convince you it's not coming. It is. The right door just hasn't opened yet.\n\nForever yours 🧡`,
 
-  4:`TU mast chhe tuuu bou mast chhe tuuuuu booo boo booooo j mast chhe taara mate ketlu b karu badhu ochhu chhe tu mane biouuuuuuu game chhe bou etle bou km k tu bou dai chhe bou sidhi and simple chhe 💗💖 and always gamti riash \n\n My love rekhli tu unique chhe bou ochha heart na saf manaso hoi and kamal always kichad ma j khile so don't worry if thodo kichad hoi aaju baju to and tu bou mast dekhay chheeee eyar badhi j tari insta post maaaaa..... ha hu atyare tane stalk karu chhu ❤️💖.\n\nI'm not saying this to make you feel better right now. I'm saying it because it's just true and you should hear it more often. Starting with me, obviously.\n\nForever yours 🧡`,
+  4:`TU mast chhe tuuu bou mast chhe tuuuuu booo boo booooo j mast chhe taara mate ketlu b karu badhu ochhu chhe tu mane biouuuuuuu game chhe bou etle bou km k tu bou dai chhe bou sidhi and simple chhe 💗💖 and always gamti riash\n\nMy love rekhli tu unique chhe bou ochha heart na saf manaso hoi and kamal always kichad ma j khile so don't worry if thodo kichad hoi aaju baju to and tu bou mast dekhay chheeee eyar badhi j tari insta post maaaaa..... ha hu atyare tane stalk karu chhu ❤️💖\n\nI'm not saying this to make you feel better right now. I'm saying it because it's just true and you should hear it more often. Starting with me, obviously.\n\nForever yours 🧡`,
 
-  5:`Come here. Seriously, just come here for a second.\n\n Tu koi wrong nahi atyare tu best hati best chhe, best chho and best j raish aiyaa aavi ja bakuda chal hug aapu taneee tu mast fatakado chhe yarr tension nai leee 🤗🫂.\n\nI'm the person who wants to do that for you. Always. However tu dur chhe but soon ronnniiii soonnnnn my love ❤️. That's the whole point of me.\n\nForever yours 🧡`,
+  5:`Come here. Seriously, just come here for a second.\n\nTu koi wrong nahi atyare tu best hati best chhe, best chho and best j raish aiyaa aavi ja bakuda chal hug aapu taneee tu mast fatakado chhe yarr tension nai leee 🤗🫂\n\nI'm the person who wants to do that for you. Always. However tu dur chhe but soon ronnniiii soonnnnn my love ❤️. That's the whole point of me.\n\nForever yours 🧡`,
 
-  6:`Okay no. Stop whatever you're thinking right now. Whatever is making you feel like this — it is lying to you.\n\nI know I can't just say "you are enough" and have it fix everything. But I can tell you what I actually see: someone who is good at her core. Not trying to be, not performing it — just actually good. You hold yourself to a standard that I genuinely don't think you'd hold anyone else to, and that is not fair to you. You would never look at someone you love and say the things you say to yourself.\n\nYou have always been enough. On your best days and on days exactly like this one. The voice that says otherwise doesn't know you the way I do. I do. And from where I'm standing, you are more than enough.  Haaa me aa GPT pase thi lakhavyu km k mane english ma lakhvu tu and ee avadatu natu 😂 Sorrry rooonniiiii 😳 You always have been.\n\nForever yours 🧡`,
+  6:`Okay no. Stop whatever you're thinking right now. Whatever is making you feel like this — it is lying to you.\n\nI know I can't just say "you are enough" and have it fix everything. But I can tell you what I actually see: someone who is good at her core. Not trying to be, not performing it — just actually good. You hold yourself to a standard that I genuinely don't think you'd hold anyone else to, and that is not fair to you. You would never look at someone you love and say the things you say to yourself.\n\nYou have always been enough. On your best days and on days exactly like this one. The voice that says otherwise doesn't know you the way I do. I do. And from where I'm standing, you are more than enough. Haaa me aa GPT pase thi lakhavyu km k mane english ma lakhvu tu and ee avadatu natu 😂 Sorrry rooonniiiii 😳 You always have been.\n\nForever yours 🧡`,
 
-  7:`My love rekhli \n\n Yarrr mara jiglu piglu tari pase aa comedian chhe ne tane hu always hasava mate ready chhu tara face par ni eek smile amara mate akha divas ni smile nu kam kare chhe my love chikuuuuuu, tu to mari coffee chhe tu to mari honey chhe tu to mari chashniiiiii life niii bas tu ke kyare hasavu tane❤️💝  \n\n my honey mast khush rey tu tu badhi j khushi deserve kare chhe . and kai b hoi to aa KAAALLLLLLUUUUUU chhe neee.\n\nForever yours 🧡`,
+  7:`My love rekhli\n\nYarrr mara jiglu piglu tari pase aa comedian chhe ne tane hu always hasava mate ready chhu tara face par ni eek smile amara mate akha divas ni smile nu kam kare chhe my love chikuuuuuu, tu to mari coffee chhe tu to mari honey chhe tu to mari chashniiiiii life niii bas tu ke kyare hasavu tane❤️💝\n\nMy honey mast khush rey tu tu badhi j khushi deserve kare chhe. and kai b hoi to aa KAAALLLLLLUUUUUU chhe neee.\n\nForever yours 🧡`,
 
-  8:`My Ronni. My whole world entire Ronni.\n\nI made this whole thing because I needed you to actually know — not just hear it once and move on — that you are someone extraordinary. TU khasam khas chhe ek dam first class tu deserve kare chhe and hu maru badhi j expertise no use kari ne mast ava ne ava surprize apto raish ronniii tara mate kadach chand tara to nai todi shaku but tane khand jevi khush rakhi shakish ❤️💝 and haaaa The way you still choose to be kind when you don't have to be. I see it. I see all of it. And I am so proud of you I don't even have the right words for it.\n\nMari to mahadev ne ek j prarthana chhe k tane mara karta b sari job male tu bou pasisa earn kar boiu bou bou etle pc hu gher besu and tu kam kar hahahahahha,,,,, tu bou mast chhe mahadev and maa banne na ashirvad tari pase chhe and revana chhe always klm k tu atli sweet chhe and ha hu avij rite tane gift apto riahs mara gift expensive to nai hoi but try karish k tane game HUUUU TANNEEEE KYAREEE B NAII RADAVUUUU .\n\nBut even if today was hard and tomorrow looks the same — I would still write every single one of these letters. Because you don't have to earn this. You never did. You just have it — all of it, completely, in a way that doesn't depend on how the shift went or how the applications are going or how you feel about yourself right now. You are my favourite person on this entire earth. You always will be.    AA LINE GPT PASE LAKHAVI CHHEEEE HAHAHAHAHAHHA  \n\nForever yours 🧡`
+  8:`My Ronni. My whole world entire Ronni.\n\nI made this whole thing because I needed you to actually know — not just hear it once and move on — that you are someone extraordinary. TU khasam khas chhe ek dam first class tu deserve kare chhe and hu maru badhi j expertise no use kari ne mast ava ne ava surprize apto raish ronniii tara mate kadach chand tara to nai todi shaku but tane khand jevi khush rakhi shakish ❤️💝 and haaaa The way you still choose to be kind when you don't have to be. I see it. I see all of it. And I am so proud of you I don't even have the right words for it.\n\nMari to mahadev ne ek j prarthana chhe k tane mara karta b sari job male tu bou pasisa earn kar boiu bou bou etle pc hu gher besu and tu kam kar hahahahahha,,,,, tu bou mast chhe mahadev and maa banne na ashirvad tari pase chhe and revana chhe always klm k tu atli sweet chhe and ha hu avij rite tane gift apto riahs mara gift expensive to nai hoi but try karish k tane game HUUUU TANNEEEE KYAREEE B NAII RADAVUUUU\n\nBut even if today was hard and tomorrow looks the same — I would still write every single one of these letters. Because you don't have to earn this. You never did. You just have it — all of it, completely, in a way that doesn't depend on how the shift went or how the applications are going or how you feel about yourself right now. You are my favourite person on this entire earth. You always will be. AA LINE GPT PASE LAKHAVI CHHEEEE HAHAHAHAHAHHA\n\nForever yours 🧡`
 };
 
-/* ════════════════════════════════════════════════════════════
-   STATE
-════════════════════════════════════════════════════════════ */
-const cache = {};               // id → letter text
-const opened = new Set();       // ids that have been opened
+/* ── STATE ─────────────────────────────────────────────────── */
+const cache = {};
+const opened = new Set();
 let currentId = null;
 
-/* ════════════════════════════════════════════════════════════
-   MODAL  — love-question gate
-════════════════════════════════════════════════════════════ */
+/* ── MODAL ─────────────────────────────────────────────────── */
 function checkAnswer(){
   const raw = document.getElementById('loveInput').value.trim().toLowerCase();
   if(raw.includes('like you too') || raw === 'too'){
@@ -567,18 +489,14 @@ function checkAnswer(){
     setTimeout(()=>{ err.style.display='none'; inp.style.borderColor=''; }, 2200);
   }
 }
-
 if(sessionStorage.getItem('unlocked')){
   document.getElementById('apiModal').style.display = 'none';
 }
 
-/* ════════════════════════════════════════════════════════════
-   FAIRY LIGHTS
-════════════════════════════════════════════════════════════ */
-(function buildLights(){
+/* ── FAIRY LIGHTS ──────────────────────────────────────────── */
+(function(){
   const text = 'Ronniiiiiiii 🧡';
   const colors = ['b-amber','b-rose','b-gold','b-peach','b-cream'];
-  // stem heights vary slightly to simulate droop
   const stems = [14,18,12,20,10,16,22,12,18,14,20,12,16,18,10];
   const row = document.getElementById('lightsRow');
   [...text].forEach((ch,i)=>{
@@ -597,9 +515,7 @@ if(sessionStorage.getItem('unlocked')){
   });
 })();
 
-/* ════════════════════════════════════════════════════════════
-   RENDER ENVELOPES
-════════════════════════════════════════════════════════════ */
+/* ── RENDER ENVELOPES ──────────────────────────────────────── */
 function makeCard(env, container){
   const wrap = document.createElement('div');
   wrap.className = 'env-wrap';
@@ -618,57 +534,38 @@ function makeCard(env, container){
     <div class="env-ribbon">opened 💛</div>`;
   container.appendChild(wrap);
 }
-
-const grid = document.getElementById('envGrid');
-ENVELOPES.forEach(e => makeCard(e, grid));
+ENVELOPES.forEach(e => makeCard(e, document.getElementById('envGrid')));
 makeCard(SECRET, document.getElementById('secretWrap'));
 
-/* ════════════════════════════════════════════════════════════
-   OPEN / CLOSE ENVELOPE
-════════════════════════════════════════════════════════════ */
+/* ── OPEN / CLOSE ──────────────────────────────────────────── */
 async function openEnvelope(id){
   const env = id === 8 ? SECRET : ENVELOPES[id];
   currentId = id;
 
-  // Flip the card flap
   document.getElementById(`card-${id}`).classList.add('is-open');
 
-  // Set mini envelope colors
-  document.getElementById('miniEnvBody').style.background = env.color;
-  document.getElementById('miniEnvFlap').style.background = env.flap;
-
-  // Reset mini flap animation
-  const flap = document.getElementById('miniEnvFlap');
-  flap.style.animation = 'none';
-  flap.offsetHeight; // reflow
-  flap.style.animation = '';
+  const miniBody = document.getElementById('miniEnvBody');
+  const miniFlap = document.getElementById('miniEnvFlap');
+  miniBody.style.background = env.color;
+  miniFlap.style.background = env.flap;
+  miniFlap.style.animation = 'none';
+  miniFlap.offsetHeight;
+  miniFlap.style.animation = '';
 
   document.getElementById('modalLabel').textContent = env.label;
-
-  const overlay = document.getElementById('letterOverlay');
-  overlay.classList.add('open');
+  document.getElementById('letterOverlay').classList.add('open');
 
   const body = document.getElementById('letterBody');
-
   if(cache[id]){
     body.textContent = cache[id];
   } else {
-    body.innerHTML = '<div class="dots"><span></span><span></span><span></span></div>';
-    try{
-      const text = await fetchLetter(env.label, id===8);
-      cache[id] = text;
-      body.textContent = text;
-    } catch(e){
-      cache[id] = FALLBACK[id] ?? FALLBACK[0];
-      body.textContent = cache[id];
-    }
+    cache[id] = FALLBACK[id] ?? FALLBACK[0];
+    body.textContent = cache[id];
   }
 
-  // Mark opened
   if(!opened.has(id)){
     opened.add(id);
     document.getElementById(`wrap-${id}`).classList.add('opened');
-    // Check if all 8 are now opened → reveal secret
     if(id !== 8 && opened.size === 8){
       setTimeout(revealSecret, 1200);
     }
@@ -677,103 +574,56 @@ async function openEnvelope(id){
 
 function closeLetter(){
   document.getElementById('letterOverlay').classList.remove('open');
-  if(currentId !== null){
-    // Leave flap open if envelope was already opened before
-    // (visual signal that it's been read)
-    currentId = null;
-  }
+  currentId = null;
 }
-
 function overlayClick(e){
   if(e.target === document.getElementById('letterOverlay')) closeLetter();
 }
 
-/* ════════════════════════════════════════════════════════════
-   REVEAL SECRET
-════════════════════════════════════════════════════════════ */
+/* ── SECRET ────────────────────────────────────────────────── */
 function revealSecret(){
   const sec = document.getElementById('secretSection');
   sec.style.display = 'block';
   setTimeout(()=> sec.scrollIntoView({behavior:'smooth',block:'center'}), 100);
 }
 
-/* ════════════════════════════════════════════════════════════
-   API CALL
-════════════════════════════════════════════════════════════ */
-async function fetchLetter(label, isSecret){
-  const key = sessionStorage.getItem('ak');
-  if(!key) throw new Error('no key');
-
-  let userMsg = label;
-  if(isSecret){
-    userMsg += '\n\nThis is the final, most special letter of all. Make it deeply emotional — tell her she is his whole world, how proud he is of her strength, how certain her dream job is coming, and that she will always be his Ronniiiiiiii no matter what. Make her cry happy tears.';
-  }
-
-  const res = await fetch('https://api.anthropic.com/v1/messages',{
-    method:'POST',
-    headers:{
-      'x-api-key': key,
-      'anthropic-version': '2023-06-01',
-      'content-type': 'application/json',
-      'anthropic-dangerous-direct-browser-access': 'true'
-    },
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 900,
-      system: SYS,
-      messages:[{role:'user',content:userMsg}]
-    })
-  });
-  if(!res.ok) throw new Error('api error');
-  const d = await res.json();
-  return d.content[0].text;
-}
-
-/* ════════════════════════════════════════════════════════════
-   MUSIC  (Web Audio API — no external files)
-════════════════════════════════════════════════════════════ */
+/* ── MUSIC ─────────────────────────────────────────────────── */
 let actx, masterGain, reverbNode, compressor;
 let playing = false, schedTimer = null;
 let beatTime = 0, beatIdx = 0;
 
-// Wildflower — Billie Eilish  (piano approximation, D major, ~65 BPM)
-// Main melody voice
+// Wildflower — Billie Eilish (piano approximation, D major, ~65 BPM)
 const VOICE_A = [
-  587.33, 493.88, 440.00, 369.99,  // D5  B4  A4  F#4
-  392.00, 440.00, 493.88, 587.33,  // G4  A4  B4  D5
-  659.26, 587.33, 493.88, 440.00,  // E5  D5  B4  A4
-  392.00, 369.99, 329.63, 293.66,  // G4  F#4 E4  D4
-  440.00, 493.88, 587.33, 493.88,  // A4  B4  D5  B4
-  440.00, 392.00, 369.99, 329.63,  // A4  G4  F#4 E4
-  293.66, 329.63, 369.99, 440.00,  // D4  E4  F#4 A4
-  493.88, 587.33, 440.00, 392.00,  // B4  D5  A4  G4
+  587.33,493.88,440.00,369.99,  // D5 B4 A4 F#4
+  392.00,440.00,493.88,587.33,  // G4 A4 B4 D5
+  659.26,587.33,493.88,440.00,  // E5 D5 B4 A4
+  392.00,369.99,329.63,293.66,  // G4 F#4 E4 D4
+  440.00,493.88,587.33,493.88,  // A4 B4 D5 B4
+  440.00,392.00,369.99,329.63,  // A4 G4 F#4 E4
+  293.66,329.63,369.99,440.00,  // D4 E4 F#4 A4
+  493.88,587.33,440.00,392.00,  // B4 D5 A4 G4
 ];
-// Soft bass harmony — 0 = rest
 const VOICE_B = [
-  293.66,      0, 246.94,      0,  // D4  -  B3  -
-  196.00,      0, 220.00,      0,  // G3  -  A3  -
-  293.66,      0, 220.00,      0,  // D4  -  A3  -
-  196.00,      0, 164.81,      0,  // G3  -  E3  -
-  220.00,      0, 246.94,      0,  // A3  -  B3  -
-  220.00,      0, 196.00,      0,  // A3  -  G3  -
-  164.81,      0, 220.00,      0,  // E3  -  A3  -
-  246.94,      0, 196.00,      0,  // B3  -  G3  -
+  293.66,0,246.94,0,
+  196.00,0,220.00,0,
+  293.66,0,220.00,0,
+  196.00,0,164.81,0,
+  220.00,0,246.94,0,
+  220.00,0,196.00,0,
+  164.81,0,220.00,0,
+  246.94,0,196.00,0,
 ];
-const BEAT = 0.46; // eighth-note at ~65 BPM — Wildflower's gentle pace
+const BEAT = 0.46;
 
 function buildAudio(){
   actx = new (window.AudioContext||window.webkitAudioContext)();
-
   compressor = actx.createDynamicsCompressor();
   compressor.threshold.value = -14;
   compressor.ratio.value = 4;
   compressor.connect(actx.destination);
-
   masterGain = actx.createGain();
   masterGain.gain.value = 0;
   masterGain.connect(compressor);
-
-  // Simple reverb via feedback delay
   const delay = actx.createDelay(.6);
   delay.delayTime.value = .28;
   const fb = actx.createGain(); fb.gain.value = .32;
@@ -787,44 +637,39 @@ function scheduleNotes(){
   if(!playing) return;
   while(beatTime < actx.currentTime + 0.5){
     const i = beatIdx % VOICE_A.length;
-    playMusicNote(VOICE_A[i], beatTime, BEAT * .86, .095);
+    playNote(VOICE_A[i], beatTime, BEAT*.86, .095);
     const bf = VOICE_B[i];
-    if(bf > 0) playMusicNote(bf, beatTime, BEAT * .70, .048);
+    if(bf > 0) playNote(bf, beatTime, BEAT*.70, .048);
     beatTime += BEAT;
     beatIdx++;
   }
   schedTimer = setTimeout(scheduleNotes, 120);
 }
 
-function playMusicNote(freq, t, dur, vol){
+function playNote(freq, t, dur, vol){
   const osc = actx.createOscillator();
-  const g   = actx.createGain();
-  // triangle wave: softer overtones, closer to a piano/music-box tone
+  const g = actx.createGain();
   osc.type = 'triangle';
   osc.frequency.value = freq;
   g.gain.setValueAtTime(0, t);
-  g.gain.linearRampToValueAtTime(vol, t + 0.025); // quick piano-like attack
+  g.gain.linearRampToValueAtTime(vol, t + 0.025);
   g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-  osc.connect(g);
-  g.connect(masterGain);
-  g.connect(reverbNode);
-  osc.start(t);
-  osc.stop(t + dur + .06);
+  osc.connect(g); g.connect(masterGain); g.connect(reverbNode);
+  osc.start(t); osc.stop(t + dur + .06);
 }
 
 function toggleMusic(){
   if(!actx) buildAudio();
   if(actx.state === 'suspended') actx.resume();
-
+  const btn = document.getElementById('musicBtn');
+  const lbl = document.getElementById('musicLabel');
   if(playing){
     playing = false;
     clearTimeout(schedTimer);
     masterGain.gain.cancelScheduledValues(actx.currentTime);
     masterGain.gain.setValueAtTime(masterGain.gain.value, actx.currentTime);
     masterGain.gain.linearRampToValueAtTime(0, actx.currentTime + 1.4);
-    document.getElementById('musicBtn').textContent = '🎵';
-    document.getElementById('musicBtn').classList.remove('playing');
-    document.getElementById('musicLabel').style.display = 'none';
+    btn.textContent = '🎵'; btn.classList.remove('playing'); lbl.style.display='none';
   } else {
     playing = true;
     beatTime = actx.currentTime + .1;
@@ -832,9 +677,7 @@ function toggleMusic(){
     masterGain.gain.setValueAtTime(0, actx.currentTime);
     masterGain.gain.linearRampToValueAtTime(.55, actx.currentTime + 1.8);
     scheduleNotes();
-    document.getElementById('musicBtn').textContent = '🔇';
-    document.getElementById('musicBtn').classList.add('playing');
-    document.getElementById('musicLabel').style.display = 'block';
+    btn.textContent = '🔇'; btn.classList.add('playing'); lbl.style.display='block';
   }
 }
 </script>
