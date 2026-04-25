@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Ronniiiiiiii 🧡</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET ─────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ─── BODY ───────────────────────────────────────────────── */
+body{
+  font-family:'Lato',sans-serif;
+  background:#1c0e06;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   API KEY MODAL
+══════════════════════════════════════════════════════════ */
+#apiModal{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,.78);
+  display:flex;align-items:center;justify-content:center;
+  z-index:2000;
+}
+.modal-box{
+  background:#fdf5e8;
+  border:3px solid #c9803a;
+  border-radius:18px;
+  padding:40px 36px 32px;
+  max-width:400px;width:92%;
+  text-align:center;
+  box-shadow:0 24px 64px rgba(0,0,0,.6);
+}
+.modal-box h2{
+  font-family:'Caveat',cursive;font-size:2rem;
+  color:#8b4010;margin-bottom:10px;
+}
+.modal-box p{
+  font-size:.88rem;color:#7a5530;line-height:1.7;margin-bottom:24px;
+}
+.modal-box input{
+  width:100%;padding:11px 15px;
+  border:2px solid #c9803a;border-radius:9px;
+  font-size:.95rem;background:#fff9f0;color:#3d1f08;
+  outline:none;margin-bottom:18px;font-family:'Lato',sans-serif;
+  transition:border-color .2s,box-shadow .2s;
+}
+.modal-box input:focus{border-color:#e09050;box-shadow:0 0 0 3px rgba(200,128,58,.22);}
+.modal-btn{
+  background:linear-gradient(135deg,#c9803a,#e2a256);
+  color:#fff;border:none;padding:12px 36px;
+  border-radius:9px;font-family:'Caveat',cursive;font-size:1.25rem;
+  cursor:pointer;box-shadow:0 4px 14px rgba(201,128,58,.45);
+  transition:transform .2s,box-shadow .2s;
+}
+.modal-btn:hover{transform:translateY(-2px);box-shadow:0 7px 20px rgba(201,128,58,.55);}
+
+/* question fill-in-the-blank */
+.modal-question{
+  font-family:'Caveat',cursive;font-size:1.55rem;font-weight:700;
+  color:#5a2e08;margin-bottom:6px;line-height:1.4;
+}
+.blank{
+  display:inline-block;
+  min-width:90px;border-bottom:2px solid #c9803a;
+  color:#c9803a;font-style:italic;padding:0 4px;
+  vertical-align:bottom;
+}
+.modal-hint{
+  font-size:.78rem;color:#a07848;font-style:italic;
+  margin-bottom:20px;line-height:1.5;
+}
+.modal-err{
+  display:none;font-family:'Caveat',cursive;font-size:1rem;
+  color:#b83030;margin-bottom:10px;
+}
+/* step transition */
+.modal-step{transition:opacity .35s ease;}
+.modal-step.hidden{display:none;}
+.modal-step2-title{
+  font-family:'Caveat',cursive;font-size:1.6rem;color:#8b4010;
+  margin-bottom:8px;
+}
+.modal-step2-sub{
+  font-size:.82rem;color:#7a5530;line-height:1.6;margin-bottom:20px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FAIRY LIGHTS HEADER
+══════════════════════════════════════════════════════════ */
+.fairy-header{
+  background:#140800;
+  padding:24px 12px 18px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+/* the wire */
+.fairy-header::before{
+  content:'';
+  position:absolute;
+  top:26px;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent 2%,#4a2c0a 8%,#4a2c0a 92%,transparent 98%);
+}
+.lights-row{
+  display:inline-flex;
+  align-items:flex-end;
+  gap:4px;
+  flex-wrap:wrap;
+  justify-content:center;
+  position:relative;
+}
+.bulb-wrap{
+  display:flex;flex-direction:column;align-items:center;
+}
+.bulb-stem{width:2px;background:#4a2c0a;}
+.bulb{
+  width:36px;height:44px;
+  border-radius:50% 50% 44% 44%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Caveat',cursive;font-size:1.35rem;font-weight:700;
+  color:rgba(255,255,255,.92);
+  position:relative;
+  animation:bulbFlicker 2.4s ease-in-out infinite;
+}
+/* metal cap */
+.bulb::after{
+  content:'';position:absolute;bottom:-5px;left:50%;
+  transform:translateX(-50%);
+  width:16px;height:7px;
+  background:#5a3a12;border-radius:0 0 5px 5px;
+}
+@keyframes bulbFlicker{
+  0%,100%{opacity:1;filter:brightness(1);}
+  45%{opacity:.75;filter:brightness(.8);}
+  50%{opacity:1;filter:brightness(1.1);}
+  80%{opacity:.85;filter:brightness(.9);}
+}
+.b-amber{background:#ffb347;box-shadow:0 0 10px 4px rgba(255,179,71,.65),0 0 22px 8px rgba(255,140,0,.3);}
+.b-rose {background:#ff9b9b;box-shadow:0 0 10px 4px rgba(255,155,155,.65),0 0 22px 8px rgba(255,80,80,.3);}
+.b-gold {background:#ffd700;box-shadow:0 0 10px 4px rgba(255,215,0,.7),0 0 22px 8px rgba(255,190,0,.35);}
+.b-peach{background:#ffcba4;box-shadow:0 0 10px 4px rgba(255,203,164,.65),0 0 22px 8px rgba(255,155,60,.3);}
+.b-cream{background:#fff8dc;box-shadow:0 0 10px 4px rgba(255,248,220,.75),0 0 22px 8px rgba(255,220,100,.35);}
+
+/* ═══════════════════════════════════════════════════════════
+   PAGE SUBTITLE
+══════════════════════════════════════════════════════════ */
+.page-sub{
+  text-align:center;padding:22px 20px 6px;
+  font-family:'Caveat',cursive;font-size:1.35rem;
+  color:#d49560;letter-spacing:.5px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CORKBOARD
+══════════════════════════════════════════════════════════ */
+.board-outer{
+  max-width:1020px;margin:16px auto 70px;
+  padding:6px;
+  background:linear-gradient(145deg,#6b3d10,#8b5218,#6b3d10);
+  border-radius:18px;
+  box-shadow:0 28px 70px rgba(0,0,0,.55),0 0 0 3px #3d2008;
+}
+.board-inner{
+  background:#c47e3a;
+  background-image:
+    radial-gradient(circle,rgba(0,0,0,.18) 1px,transparent 1px),
+    radial-gradient(circle,rgba(255,220,150,.06) 2px,transparent 2px);
+  background-size:9px 9px, 18px 18px;
+  background-position:0 0, 4px 4px;
+  border-radius:13px;
+  padding:28px 22px 32px;
+  box-shadow:inset 0 3px 10px rgba(0,0,0,.3),inset 0 -2px 6px rgba(255,180,60,.1);
+}
+
+/* ─── ENVELOPE GRID ─────────────────────────────────────── */
+.env-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:22px;
+}
+@media(min-width:600px){.env-grid{grid-template-columns:repeat(3,1fr);}}
+@media(min-width:900px){.env-grid{grid-template-columns:repeat(4,1fr);}}
+
+/* ─── SINGLE ENVELOPE WRAPPER ───────────────────────────── */
+.env-wrap{
+  display:flex;flex-direction:column;align-items:center;
+  position:relative;padding-top:12px;
+}
+
+/* pushpin */
+.pushpin{
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:20px;height:20px;border-radius:50%;z-index:5;
+  background:radial-gradient(circle at 35% 35%,#ff7070,#c01818);
+  box-shadow:0 2px 5px rgba(0,0,0,.45),inset 0 1px 2px rgba(255,255,255,.35);
+}
+.pushpin::after{
+  content:'';position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);
+  width:5px;height:10px;background:#999;border-radius:0 0 3px 3px;
+}
+
+/* envelope card */
+.env-card{
+  width:100%;
+  border-radius:8px 8px 6px 6px;
+  background:var(--ec,#fde3c8);
+  cursor:pointer;
+  position:relative;
+  box-shadow:2px 5px 14px rgba(0,0,0,.28);
+  transition:transform .22s,box-shadow .22s;
+  perspective:600px;
+  user-select:none;
+  -webkit-tap-highlight-color:transparent;
+}
+.env-card:hover{
+  transform:translateY(-5px) rotate(-1.5deg);
+  box-shadow:4px 10px 24px rgba(0,0,0,.38);
+}
+
+/* envelope flap triangle */
+.env-flap{
+  width:100%;
+  padding-bottom:50%; /* triangle height */
+  position:relative;
+  overflow:hidden;
+  transform-origin:top center;
+  transform-style:preserve-3d;
+  transition:transform .55s cubic-bezier(.4,0,.2,1);
+  border-radius:8px 8px 0 0;
+}
+.env-flap::before{
+  content:'';position:absolute;
+  inset:0;
+  background:var(--ef,#f5cfa8);
+  clip-path:polygon(0 0,100% 0,50% 100%);
+}
+.env-card.is-open .env-flap{transform:rotateX(-175deg);}
+
+/* envelope body */
+.env-body{
+  padding:10px 10px 13px;
+  display:flex;flex-direction:column;align-items:center;gap:7px;
+  position:relative;
+}
+/* diagonal V lines like a real envelope */
+.env-body::before,.env-body::after{
+  content:'';position:absolute;
+  width:145%;height:2px;
+  background:var(--el,rgba(0,0,0,.07));
+  top:0;pointer-events:none;
+}
+.env-body::before{left:-23%;transform:rotate(34deg);transform-origin:left top;}
+.env-body::after{right:-23%;transform:rotate(-34deg);transform-origin:right top;}
+
+.wax-seal{font-size:1.7rem;line-height:1;filter:drop-shadow(0 2px 3px rgba(0,0,0,.22));}
+.env-label{
+  font-family:'Caveat',cursive;font-size:.82rem;font-weight:600;
+  color:#5a2e08;text-align:center;line-height:1.35;
+}
+
+/* opened ribbon */
+.env-ribbon{
+  display:none;
+  position:absolute;top:6px;right:-5px;
+  background:linear-gradient(135deg,#ffaabe,#ffccd6);
+  color:#6b0020;font-size:.62rem;font-family:'Caveat',cursive;font-weight:700;
+  padding:3px 9px;border-radius:4px;
+  transform:rotate(14deg);
+  box-shadow:0 2px 6px rgba(0,0,0,.22);z-index:4;
+  white-space:nowrap;
+}
+.env-wrap.opened .env-ribbon{display:block;}
+
+/* ─── SECRET ENVELOPE SECTION ───────────────────────────── */
+.secret-section{
+  display:none;
+  text-align:center;
+  padding:28px 0 6px;
+  animation:secretAppear 1.8s ease both;
+}
+@keyframes secretAppear{
+  0%{opacity:0;transform:translateY(28px);}
+  100%{opacity:1;transform:translateY(0);}
+}
+.secret-hint{
+  font-family:'Caveat',cursive;font-size:1.2rem;color:#5a2e08;
+  margin-bottom:18px;
+  animation:secretShimmer 2s ease-in-out infinite;
+}
+@keyframes secretShimmer{
+  0%,100%{text-shadow:0 0 8px rgba(255,215,0,.55);}
+  50%{text-shadow:0 0 18px rgba(255,215,0,1),0 0 36px rgba(255,160,0,.55);}
+}
+.secret-card-wrap{
+  display:inline-flex;flex-direction:column;align-items:center;
+  max-width:240px;
+}
+.secret-card-wrap .env-card{
+  animation:goldenGlow 2s ease-in-out infinite;
+}
+@keyframes goldenGlow{
+  0%,100%{box-shadow:2px 5px 14px rgba(255,210,0,.4),0 0 24px rgba(255,180,0,.3);}
+  50%{box-shadow:2px 5px 28px rgba(255,210,0,.85),0 0 48px rgba(255,180,0,.6);}
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LETTER OVERLAY / MODAL
+══════════════════════════════════════════════════════════ */
+#letterOverlay{
+  display:none;
+  position:fixed;inset:0;
+  background:rgba(14,6,0,.86);
+  z-index:800;
+  align-items:center;justify-content:center;
+  padding:20px;
+  overflow-y:auto;
+}
+#letterOverlay.open{display:flex;}
+
+.letter-modal{
+  max-width:540px;width:100%;
+  display:flex;flex-direction:column;align-items:center;
+  animation:modalIn .45s ease both;
+}
+@keyframes modalIn{
+  from{opacity:0;transform:translateY(28px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* mini envelope at top of modal */
+.mini-env{
+  width:110px;height:72px;
+  position:relative;
+  perspective:500px;
+  margin-bottom:-2px;
+  flex-shrink:0;
+}
+.mini-env-body{
+  width:100%;height:100%;
+  border-radius:5px 5px 7px 7px;
+  background:var(--me-color,#fde3c8);
+}
+.mini-env-flap{
+  position:absolute;top:0;left:0;right:0;height:52%;
+  background:var(--me-flap,#f5cfa8);
+  clip-path:polygon(0 0,100% 0,50% 100%);
+  transform-origin:top center;
+  animation:miniFlap .7s cubic-bezier(.4,0,.2,1) .2s both;
+}
+@keyframes miniFlap{
+  from{transform:rotateX(0);}
+  to{transform:rotateX(-168deg);}
+}
+
+/* letter card */
+.letter-card{
+  background:#fdf8ee;
+  border-radius:0 0 8px 8px;
+  padding:26px 28px 22px;
+  width:100%;
+  box-shadow:0 20px 60px rgba(0,0,0,.42);
+  position:relative;
+  animation:letterUp .5s ease .5s both;
+}
+@keyframes letterUp{
+  from{opacity:0;transform:translateY(18px);}
+  to{opacity:1;transform:translateY(0);}
+}
+/* ruled lines */
+.letter-card::before{
+  content:'';position:absolute;inset:0;border-radius:0 0 8px 8px;
+  background-image:repeating-linear-gradient(
+    transparent,transparent 27px,
+    rgba(160,120,80,.18) 27px,rgba(160,120,80,.18) 28px
+  );
+  background-position:0 38px;
+  pointer-events:none;
+}
+.letter-envelope-label{
+  font-family:'Caveat',cursive;font-size:.95rem;color:#b87030;
+  margin-bottom:14px;opacity:.8;font-style:italic;
+}
+.letter-body{
+  font-family:'Caveat',cursive;font-size:1.18rem;
+  color:#3a1e08;line-height:1.92;
+  white-space:pre-wrap;min-height:80px;
+}
+
+/* loading dots */
+.dots{display:flex;gap:9px;justify-content:center;padding:22px 0;}
+.dots span{
+  width:11px;height:11px;border-radius:50%;background:#c9803a;
+  animation:dotBounce 1.2s ease-in-out infinite;
+}
+.dots span:nth-child(2){animation-delay:.2s;}
+.dots span:nth-child(3){animation-delay:.4s;}
+@keyframes dotBounce{
+  0%,80%,100%{transform:translateY(0);opacity:.55;}
+  40%{transform:translateY(-13px);opacity:1;}
+}
+
+/* seal-back button */
+.seal-btn{
+  margin-top:18px;
+  background:transparent;border:2px solid #c9803a;color:#c9803a;
+  padding:9px 22px;border-radius:22px;
+  font-family:'Caveat',cursive;font-size:1.15rem;
+  cursor:pointer;transition:background .2s,color .2s;
+}
+.seal-btn:hover{background:#c9803a;color:#fff;}
+
+/* ═══════════════════════════════════════════════════════════
+   MUSIC BUTTON
+══════════════════════════════════════════════════════════ */
+#musicBtn{
+  position:fixed;bottom:22px;right:22px;
+  width:52px;height:52px;border-radius:50%;
+  background:linear-gradient(135deg,#c9803a,#e2a256);
+  border:none;font-size:1.4rem;cursor:pointer;
+  box-shadow:0 4px 18px rgba(200,128,58,.5);
+  z-index:900;display:flex;align-items:center;justify-content:center;
+  transition:transform .2s;
+}
+#musicBtn:hover{transform:scale(1.1);}
+#musicBtn.playing{animation:musicPulse 1.6s ease-in-out infinite;}
+@keyframes musicPulse{
+  0%,100%{box-shadow:0 4px 18px rgba(200,128,58,.5);}
+  50%{box-shadow:0 4px 34px rgba(200,128,58,.9),0 0 48px rgba(255,180,80,.38);}
+}
+</style>
+</head>
+<body>
+
+<!-- ── MODAL ────────────────────────────────────────────────── -->
+<div id="apiModal">
+  <div class="modal-box">
+    <h2 style="font-family:'Caveat',cursive;font-size:1.9rem;color:#8b4010;margin-bottom:14px;">
+      One question first 🧡
+    </h2>
+    <p class="modal-question">
+      I <span class="blank" id="blankWord">_______</span> Likeeeeeeee youuuuuuuu
+    </p>
+    <p class="modal-hint">
+      ( Mare biju kaik lakhvu tu but ee hu aavine kav 🧡 )
+    </p>
+    <input type="text" id="loveInput" placeholder="your answer..."
+           autocomplete="off" spellcheck="false"
+           onkeydown="if(event.key==='Enter')checkAnswer()"
+           oninput="document.getElementById('blankWord').textContent=this.value||'_______'">
+    <div class="modal-err" id="wrongMsg">hmm… try again 🥺</div>
+    <button class="modal-btn" onclick="checkAnswer()">that's my answer 🧡</button>
+  </div>
+</div>
+
+<!-- ── FAIRY LIGHTS HEADER ────────────────────────────────── -->
+<div class="fairy-header">
+  <div class="lights-row" id="lightsRow"></div>
+</div>
+
+<!-- ── PAGE SUBTITLE ──────────────────────────────────────── -->
+<p class="page-sub">For Ronniiiiiiii 🧡 — open when you need it</p>
+
+<!-- ── CORKBOARD ──────────────────────────────────────────── -->
+<div class="board-outer">
+  <div class="board-inner">
+    <div class="env-grid" id="envGrid"></div>
+    <!-- secret 9th envelope -->
+    <div class="secret-section" id="secretSection">
+      <div class="secret-hint">✨ You opened them all… there's one more 🌟 ✨</div>
+      <div class="secret-card-wrap" id="secretWrap"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── LETTER OVERLAY ─────────────────────────────────────── -->
+<div id="letterOverlay" onclick="overlayClick(event)">
+  <div class="letter-modal" id="letterModal">
+    <div class="mini-env" id="miniEnv">
+      <div class="mini-env-body" id="miniEnvBody"></div>
+      <div class="mini-env-flap" id="miniEnvFlap"></div>
+    </div>
+    <div class="letter-card">
+      <div class="letter-envelope-label" id="modalLabel"></div>
+      <div class="letter-body" id="letterBody"></div>
+    </div>
+    <button class="seal-btn" onclick="closeLetter()">💌 seal it back</button>
+  </div>
+</div>
+
+<!-- ── MUSIC TOGGLE ───────────────────────────────────────── -->
+<div style="position:fixed;bottom:22px;right:22px;display:flex;flex-direction:column;align-items:flex-end;gap:6px;z-index:900;">
+  <span id="musicLabel" style="display:none;font-family:'Caveat',cursive;font-size:.85rem;color:#e2a256;
+        background:rgba(28,14,6,.85);padding:3px 10px;border-radius:12px;white-space:nowrap;
+        animation:musicPulse 1.6s ease-in-out infinite;">
+    ♪ Wildflower — Billie Eilish
+  </span>
+  <button id="musicBtn" onclick="toggleMusic()">🎵</button>
+</div>
+
+<script>
+/* ════════════════════════════════════════════════════════════
+   DATA
+════════════════════════════════════════════════════════════ */
+const ENVELOPES = [
+  {id:0,label:"Open when you feel unappreciated at work",  color:"#fde3c8",flap:"#f2ccac",line:"rgba(0,0,0,.07)"},
+  {id:1,label:"Open when you feel like giving up",          color:"#ffd6d6",flap:"#f5b8b8",line:"rgba(0,0,0,.06)"},
+  {id:2,label:"Open when you miss me",                     color:"#fce4d6",flap:"#f5ccbc",line:"rgba(0,0,0,.07)"},
+  {id:3,label:"Open when your dream job feels far away",   color:"#d9edcc",flap:"#c4e0b0",line:"rgba(0,0,0,.06)"},
+  {id:4,label:"Open when you need a reminder of how amazing you are",
+                                                            color:"#cce4f9",flap:"#afd2f0",line:"rgba(0,0,0,.06)"},
+  {id:5,label:"Open when you just need a hug",             color:"#f9d5e8",flap:"#f2b8d5",line:"rgba(0,0,0,.06)"},
+  {id:6,label:"Open when you feel like you're not enough", color:"#e8d5f9",flap:"#d5b8f2",line:"rgba(0,0,0,.06)"},
+  {id:7,label:"Open when you need to smile",               color:"#fef3c2",flap:"#fde87a",line:"rgba(0,0,0,.06)"},
+];
+const SECRET = {id:8,label:"Open when you've read them all… 🌟",color:"#fff5c0",flap:"#ffe865",line:"rgba(0,0,0,.06)"};
+
+const SYS = `You write deeply heartfelt, personal letters from a loving boyfriend to his girlfriend named Het (nickname: Ronniiiiiiii). She is sweet, kind, hardworking, currently having a tough time as a Tim Hortons manager, and is actively looking for a job in her field. Each letter should feel warm, personal, romantic but genuine — not cheesy. Write in first person as her boyfriend. 3-4 short paragraphs. End every letter with 'Forever yours 🧡' and nothing else after that. No intro labels, just the letter body.`;
+
+const FALLBACK = {
+  0:`Hey. I know today was rough. Like actually rough — not the kind where you vent for five minutes and then it's fine, but the kind where you're driving home and still replaying everything in your head. I hate that for you. And honestly? I hate how much that place takes from you sometimes.\n\nYou manage a whole team, Ronni. You deal with the early mornings, the things that get dropped in your lap that were never yours to handle, the customers who are already in a bad mood before they've even ordered. And you do it without making a big deal about it. Without asking for any recognition. I don't know if anyone there actually sees that, but I do.\n\nThis job is a chapter, not the whole story. The version of you that walks through the door after a shift like today still has my whole heart. Come sit with me. We don't even have to talk about it.\n\nForever yours 🧡`,
+
+  1:`Hey. Don't. Not yet. I know you're exhausted and I know it feels like nothing is moving no matter how hard you push. But please — please don't stop here.\n\nI've been watching you this whole time. The way you keep going even when you're running on almost nothing. The way you stay kind when you have every reason not to. The way you don't quit even when quitting would be the easier thing. I've never actually met someone who does that as quietly and consistently as you do. You just do it without making it a whole thing.\n\nThis isn't where it ends. It's just a hard stretch. And I'm not going anywhere — I'm going to be right here reading every page of this with you.\n\nForever yours 🧡`,
+
+  2:`I miss you too. Like, specifically — the specific weight of your head on my shoulder. The way you reach over and fix something on me for no reason. The way you say my name when something funny happens before you've even figured out how to tell me about it. I miss that version of you that only really exists when it's just us.\n\nYou're one of those people who makes every room a little warmer just by being in it. I know that sounds like something people just say, but I mean it differently. When you're not around I notice the gap. Things that would make me laugh aren't as good without you. You just make everything better.\n\nCome back to me soon. Or just text me something random. I need it.\n\nForever yours 🧡`,
+
+  3:`I know it feels far. I know you've applied and waited and heard nothing and applied again and it is exhausting and demoralizing and some days I think you probably wonder if it's even worth it. That's a real feeling and I'm not going to pretend it isn't.\n\nBut here's the thing — you are genuinely, actually qualified for what you want. Not "you'll grow into it" qualified. You already are it. The work ethic, the people skills, the patience you have that most people in your field don't even have after years of doing it. Someone is going to read your name on an application one day and think oh, finally. And then that's going to be your whole life.\n\nDon't stop applying. Don't let the silence convince you it's not coming. It is. The right door just hasn't opened yet.\n\nForever yours 🧡`,
+
+  4:`You know what actually gets me? You don't even know. You genuinely have no idea how you come across to people. You'll do something thoughtful or say something funny or just quietly be kind to someone and then move on like it was nothing, and I'm standing there like — how is this person real.\n\nYou're patient in a way that doesn't come naturally to most people. You remember the small stuff about the people you care about. You're warm to strangers when you have absolutely no obligation to be. I don't know if you realize those things are actually rare — like, genuinely uncommon in people — but they are. You are.\n\nI'm not saying this to make you feel better right now. I'm saying it because it's just true and you should hear it more often. Starting with me, obviously.\n\nForever yours 🧡`,
+
+  5:`Come here. Seriously, just come here for a second.\n\nYou don't have to tell me what's wrong. You don't have to have it figured out or have a reason or explain anything at all. Some days just hit different and that's it. I just want you to be able to stop moving for a minute. To let someone else hold some of it for a little while.\n\nI'm the person who wants to do that for you. Always. However tired you are, however much is going on — you don't have to carry all of it alone when I'm here. That's the whole point of me.\n\nForever yours 🧡`,
+
+  6:`Okay no. Stop whatever you're thinking right now. Whatever is making you feel like this — it is lying to you.\n\nI know I can't just say "you are enough" and have it fix everything. But I can tell you what I actually see: someone who is good at her core. Not trying to be, not performing it — just actually good. You hold yourself to a standard that I genuinely don't think you'd hold anyone else to, and that is not fair to you. You would never look at someone you love and say the things you say to yourself.\n\nYou have always been enough. On your best days and on days exactly like this one. The voice that says otherwise doesn't know you the way I do. I do. And from where I'm standing, you are more than enough. You always have been.\n\nForever yours 🧡`,
+
+  7:`Okay hi. Can I tell you something completely ridiculous?\n\nYou do this thing where you start laughing in the middle of your own story before you've even gotten to the funny part, and by the time you actually say the thing I'm already laughing too — not at the story, but at you laughing. I love it so much I can't explain it. Also you say "actually no wait" like four times per sentence. Also you make a face when you're concentrating that I have genuinely never seen another human make. Also you text me in full paragraphs and then reply "lol" to mine and I still don't know what that means and I never want to find out.\n\nYou are so funny and weird and warm. You are mine. I think about that and it makes everything better. I hope this did the same thing.\n\nForever yours 🧡`,
+
+  8:`My Ronni. My whole entire Ronni.\n\nI made this whole thing because I needed you to actually know — not just hear it once and move on — that you are someone extraordinary. Not in a big loud way. In the quiet, consistent, daily way that actually means something. The way you keep going. The way you stay soft even when the world has given you every reason to go hard. The way you still choose to be kind when you don't have to be. I see it. I see all of it. And I am so proud of you I don't even have the right words for it.\n\nYou are going to get that job, Ronni. I don't say that just to say something. I say it because I have watched you work and fight and not give up and I know — I genuinely know — it's coming. The right person is going to look at your name and think finally, someone like her. And when that day comes I am going to be so embarrassingly, annoyingly happy for you. I'm already practicing.\n\nBut even if today was hard and tomorrow looks the same — I would still write every single one of these letters. Because you don't have to earn this. You never did. You just have it — all of it, completely, in a way that doesn't depend on how the shift went or how the applications are going or how you feel about yourself right now. You are my favourite person on this entire earth. You always will be.\n\nForever yours 🧡`
+};
+
+/* ════════════════════════════════════════════════════════════
+   STATE
+════════════════════════════════════════════════════════════ */
+const cache = {};               // id → letter text
+const opened = new Set();       // ids that have been opened
+let currentId = null;
+
+/* ════════════════════════════════════════════════════════════
+   MODAL  — love-question gate
+════════════════════════════════════════════════════════════ */
+function checkAnswer(){
+  const raw = document.getElementById('loveInput').value.trim().toLowerCase();
+  if(raw.includes('like you too') || raw === 'too'){
+    sessionStorage.setItem('unlocked','1');
+    document.getElementById('apiModal').style.display = 'none';
+  } else {
+    const err = document.getElementById('wrongMsg');
+    const inp = document.getElementById('loveInput');
+    err.style.display = 'block';
+    inp.style.borderColor = '#b83030';
+    inp.focus();
+    setTimeout(()=>{ err.style.display='none'; inp.style.borderColor=''; }, 2200);
+  }
+}
+
+if(sessionStorage.getItem('unlocked')){
+  document.getElementById('apiModal').style.display = 'none';
+}
+
+/* ════════════════════════════════════════════════════════════
+   FAIRY LIGHTS
+════════════════════════════════════════════════════════════ */
+(function buildLights(){
+  const text = 'Ronniiiiiiii 🧡';
+  const colors = ['b-amber','b-rose','b-gold','b-peach','b-cream'];
+  // stem heights vary slightly to simulate droop
+  const stems = [14,18,12,20,10,16,22,12,18,14,20,12,16,18,10];
+  const row = document.getElementById('lightsRow');
+  [...text].forEach((ch,i)=>{
+    const wrap = document.createElement('div');
+    wrap.className = 'bulb-wrap';
+    const stem = document.createElement('div');
+    stem.className = 'bulb-stem';
+    stem.style.height = (stems[i%stems.length])+'px';
+    const bulb = document.createElement('div');
+    bulb.className = `bulb ${colors[i%colors.length]}`;
+    bulb.textContent = ch;
+    bulb.style.animationDelay = `${(i*0.18)%2.4}s`;
+    wrap.appendChild(stem);
+    wrap.appendChild(bulb);
+    row.appendChild(wrap);
+  });
+})();
+
+/* ════════════════════════════════════════════════════════════
+   RENDER ENVELOPES
+════════════════════════════════════════════════════════════ */
+function makeCard(env, container){
+  const wrap = document.createElement('div');
+  wrap.className = 'env-wrap';
+  wrap.id = `wrap-${env.id}`;
+  wrap.innerHTML = `
+    <div class="pushpin"></div>
+    <div class="env-card" id="card-${env.id}"
+         style="--ec:${env.color};--ef:${env.flap};--el:${env.line}"
+         onclick="openEnvelope(${env.id})">
+      <div class="env-flap"></div>
+      <div class="env-body">
+        <div class="wax-seal">${env.id===8?'⭐':'🔴'}</div>
+        <div class="env-label">${env.label}</div>
+      </div>
+    </div>
+    <div class="env-ribbon">opened 💛</div>`;
+  container.appendChild(wrap);
+}
+
+const grid = document.getElementById('envGrid');
+ENVELOPES.forEach(e => makeCard(e, grid));
+makeCard(SECRET, document.getElementById('secretWrap'));
+
+/* ════════════════════════════════════════════════════════════
+   OPEN / CLOSE ENVELOPE
+════════════════════════════════════════════════════════════ */
+async function openEnvelope(id){
+  const env = id === 8 ? SECRET : ENVELOPES[id];
+  currentId = id;
+
+  // Flip the card flap
+  document.getElementById(`card-${id}`).classList.add('is-open');
+
+  // Set mini envelope colors
+  document.getElementById('miniEnvBody').style.background = env.color;
+  document.getElementById('miniEnvFlap').style.background = env.flap;
+
+  // Reset mini flap animation
+  const flap = document.getElementById('miniEnvFlap');
+  flap.style.animation = 'none';
+  flap.offsetHeight; // reflow
+  flap.style.animation = '';
+
+  document.getElementById('modalLabel').textContent = env.label;
+
+  const overlay = document.getElementById('letterOverlay');
+  overlay.classList.add('open');
+
+  const body = document.getElementById('letterBody');
+
+  if(cache[id]){
+    body.textContent = cache[id];
+  } else {
+    body.innerHTML = '<div class="dots"><span></span><span></span><span></span></div>';
+    try{
+      const text = await fetchLetter(env.label, id===8);
+      cache[id] = text;
+      body.textContent = text;
+    } catch(e){
+      cache[id] = FALLBACK[id] ?? FALLBACK[0];
+      body.textContent = cache[id];
+    }
+  }
+
+  // Mark opened
+  if(!opened.has(id)){
+    opened.add(id);
+    document.getElementById(`wrap-${id}`).classList.add('opened');
+    // Check if all 8 are now opened → reveal secret
+    if(id !== 8 && opened.size === 8){
+      setTimeout(revealSecret, 1200);
+    }
+  }
+}
+
+function closeLetter(){
+  document.getElementById('letterOverlay').classList.remove('open');
+  if(currentId !== null){
+    // Leave flap open if envelope was already opened before
+    // (visual signal that it's been read)
+    currentId = null;
+  }
+}
+
+function overlayClick(e){
+  if(e.target === document.getElementById('letterOverlay')) closeLetter();
+}
+
+/* ════════════════════════════════════════════════════════════
+   REVEAL SECRET
+════════════════════════════════════════════════════════════ */
+function revealSecret(){
+  const sec = document.getElementById('secretSection');
+  sec.style.display = 'block';
+  setTimeout(()=> sec.scrollIntoView({behavior:'smooth',block:'center'}), 100);
+}
+
+/* ════════════════════════════════════════════════════════════
+   API CALL
+════════════════════════════════════════════════════════════ */
+async function fetchLetter(label, isSecret){
+  const key = sessionStorage.getItem('ak');
+  if(!key) throw new Error('no key');
+
+  let userMsg = label;
+  if(isSecret){
+    userMsg += '\n\nThis is the final, most special letter of all. Make it deeply emotional — tell her she is his whole world, how proud he is of her strength, how certain her dream job is coming, and that she will always be his Ronniiiiiiii no matter what. Make her cry happy tears.';
+  }
+
+  const res = await fetch('https://api.anthropic.com/v1/messages',{
+    method:'POST',
+    headers:{
+      'x-api-key': key,
+      'anthropic-version': '2023-06-01',
+      'content-type': 'application/json',
+      'anthropic-dangerous-direct-browser-access': 'true'
+    },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 900,
+      system: SYS,
+      messages:[{role:'user',content:userMsg}]
+    })
+  });
+  if(!res.ok) throw new Error('api error');
+  const d = await res.json();
+  return d.content[0].text;
+}
+
+/* ════════════════════════════════════════════════════════════
+   MUSIC  (Web Audio API — no external files)
+════════════════════════════════════════════════════════════ */
+let actx, masterGain, reverbNode, compressor;
+let playing = false, schedTimer = null;
+let beatTime = 0, beatIdx = 0;
+
+// Wildflower — Billie Eilish  (piano approximation, D major, ~65 BPM)
+// Main melody voice
+const VOICE_A = [
+  587.33, 493.88, 440.00, 369.99,  // D5  B4  A4  F#4
+  392.00, 440.00, 493.88, 587.33,  // G4  A4  B4  D5
+  659.26, 587.33, 493.88, 440.00,  // E5  D5  B4  A4
+  392.00, 369.99, 329.63, 293.66,  // G4  F#4 E4  D4
+  440.00, 493.88, 587.33, 493.88,  // A4  B4  D5  B4
+  440.00, 392.00, 369.99, 329.63,  // A4  G4  F#4 E4
+  293.66, 329.63, 369.99, 440.00,  // D4  E4  F#4 A4
+  493.88, 587.33, 440.00, 392.00,  // B4  D5  A4  G4
+];
+// Soft bass harmony — 0 = rest
+const VOICE_B = [
+  293.66,      0, 246.94,      0,  // D4  -  B3  -
+  196.00,      0, 220.00,      0,  // G3  -  A3  -
+  293.66,      0, 220.00,      0,  // D4  -  A3  -
+  196.00,      0, 164.81,      0,  // G3  -  E3  -
+  220.00,      0, 246.94,      0,  // A3  -  B3  -
+  220.00,      0, 196.00,      0,  // A3  -  G3  -
+  164.81,      0, 220.00,      0,  // E3  -  A3  -
+  246.94,      0, 196.00,      0,  // B3  -  G3  -
+];
+const BEAT = 0.46; // eighth-note at ~65 BPM — Wildflower's gentle pace
+
+function buildAudio(){
+  actx = new (window.AudioContext||window.webkitAudioContext)();
+
+  compressor = actx.createDynamicsCompressor();
+  compressor.threshold.value = -14;
+  compressor.ratio.value = 4;
+  compressor.connect(actx.destination);
+
+  masterGain = actx.createGain();
+  masterGain.gain.value = 0;
+  masterGain.connect(compressor);
+
+  // Simple reverb via feedback delay
+  const delay = actx.createDelay(.6);
+  delay.delayTime.value = .28;
+  const fb = actx.createGain(); fb.gain.value = .32;
+  const wet = actx.createGain(); wet.gain.value = .38;
+  delay.connect(fb); fb.connect(delay);
+  delay.connect(wet); wet.connect(masterGain);
+  reverbNode = delay;
+}
+
+function scheduleNotes(){
+  if(!playing) return;
+  while(beatTime < actx.currentTime + 0.5){
+    const i = beatIdx % VOICE_A.length;
+    playMusicNote(VOICE_A[i], beatTime, BEAT * .86, .095);
+    const bf = VOICE_B[i];
+    if(bf > 0) playMusicNote(bf, beatTime, BEAT * .70, .048);
+    beatTime += BEAT;
+    beatIdx++;
+  }
+  schedTimer = setTimeout(scheduleNotes, 120);
+}
+
+function playMusicNote(freq, t, dur, vol){
+  const osc = actx.createOscillator();
+  const g   = actx.createGain();
+  // triangle wave: softer overtones, closer to a piano/music-box tone
+  osc.type = 'triangle';
+  osc.frequency.value = freq;
+  g.gain.setValueAtTime(0, t);
+  g.gain.linearRampToValueAtTime(vol, t + 0.025); // quick piano-like attack
+  g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+  osc.connect(g);
+  g.connect(masterGain);
+  g.connect(reverbNode);
+  osc.start(t);
+  osc.stop(t + dur + .06);
+}
+
+function toggleMusic(){
+  if(!actx) buildAudio();
+  if(actx.state === 'suspended') actx.resume();
+
+  if(playing){
+    playing = false;
+    clearTimeout(schedTimer);
+    masterGain.gain.cancelScheduledValues(actx.currentTime);
+    masterGain.gain.setValueAtTime(masterGain.gain.value, actx.currentTime);
+    masterGain.gain.linearRampToValueAtTime(0, actx.currentTime + 1.4);
+    document.getElementById('musicBtn').textContent = '🎵';
+    document.getElementById('musicBtn').classList.remove('playing');
+    document.getElementById('musicLabel').style.display = 'none';
+  } else {
+    playing = true;
+    beatTime = actx.currentTime + .1;
+    masterGain.gain.cancelScheduledValues(actx.currentTime);
+    masterGain.gain.setValueAtTime(0, actx.currentTime);
+    masterGain.gain.linearRampToValueAtTime(.55, actx.currentTime + 1.8);
+    scheduleNotes();
+    document.getElementById('musicBtn').textContent = '🔇';
+    document.getElementById('musicBtn').classList.add('playing');
+    document.getElementById('musicLabel').style.display = 'block';
+  }
+}
+</script>
+</body>
+</html>
